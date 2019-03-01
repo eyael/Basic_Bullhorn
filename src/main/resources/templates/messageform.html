@@ -23,13 +23,13 @@
 
    PostedDate :<input type="date" th:field="*{postedDate}" />
     <span th:if="${#fields.hasErrors('postedDate')}"
-          th:errors="*{postedDate"}></span><br/>
+          th:errors="*{postedDate}"></span><br/>
 
     PostedBy :<input type="text" th:field="*{postedBy}" />
     <span th:if="${#fields.hasErrors('postedBy')}"
-          th:errors="*{postedBy"}></span><br/>
+          th:errors="*{postedBy}"></span><br/>
     <br/>
-    <input type="submit" value="Submit" />
+    <input type="submit" value="Post" />
 
 </form>
 <span th:replace="base :: jslinks"></span>

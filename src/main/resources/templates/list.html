@@ -16,6 +16,7 @@
         <th>PostedBy</th>
         <td>Actions</td>
     </tr>
+
     <tr th:each="message: ${message}">
 
         <td th:text="${message.title}"></td>
@@ -28,15 +29,12 @@
         </td>
     </tr>
 </table>
+<div class="col col-sm-5" align="center">
+    <div class="card" style="width: 20rem;">
+        <img class="card-img-top" src=" https://res.cloudinary.com/dtvwgqowk/image/upload/c_thumb,w_200,g_face/v1551468515/imaaaaaage.png"alt="Card image" style="width:100%">
+        <div class="card-body" href="/add"></div>
+    </div>
+</div>
 <span th:replace="base :: jslinks" ></span>
-<script>
-    //  Jquery for smooth scrolling
-    $('.nav-link, .navbar-brand, .new-button').click(function () {
-        var sectionTo = $(this).attr('href');
-        $('html, body').animate({
-            scrollTop: $(sectionTo).offset().top
-        }, 1500);
-    });
-</script>
 </body>
 </html>
