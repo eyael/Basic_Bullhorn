@@ -7,8 +7,8 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
     <style>
         body{
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
             background-size: cover;
+            background-color: lightpink;
         }
     </style>
 </head>
@@ -28,16 +28,6 @@
     </div>
 
 </nav>
-
-<script>
-    //  Jquery for smooth scrolling
-    $('.nav-link, .navbar-brand, .new-button').click(function () {
-        var sectionTo = $(this).attr('href');
-        $('html, body').animate({
-            scrollTop: $(sectionTo).offset().top
-        }, 1500);
-    });
-</script>
 
 <span th:fragment="jslinks">
     <script crossorigin="anonymous"
