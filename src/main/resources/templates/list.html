@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Message list</title>
+    <th:block th:insert="base :: header"></th:block>
+</head>
+<body>
+<nav th:replace="base :: nav"></nav>
+<a href="/add">Add a Message</a><br/>
+<table class="table">
+
+    <tr>
+        <th>Title</th>
+        <th>PostedDate</th>
+        <th>PostedBy</th>
+        <td>Actions</td>
+    </tr>
+    <tr th:each="message: ${message}">
+
+        <td th:text="${message.title}"></td>
+        <td th:text="${message.postedDate}"></td>
+        <td th:text="${message.postedBy}"></td>
+        <td>
+            <a th:href="@{/update/{id}(id=${message.id})}">Update</a> -
+            <a th:href="@{/detail/{id}(id=${message.id})}">Detail</a> -
+            <a th:href="@{/delete/{id}(id=${message.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+<span th:replace="base :: jslinks" ></span>
+<script>
+    //  Jquery for smooth scrolling
+    $('.nav-link, .navbar-brand, .new-button').click(function () {
+        var sectionTo = $(this).attr('href');
+        $('html, body').animate({
+            scrollTop: $(sectionTo).offset().top
+        }, 1500);
+    });
+</script>
+</body>
+</html>

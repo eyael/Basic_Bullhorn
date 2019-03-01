@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Message Form</title>
+    <th:block th:insert="base :: header"></th:block>
+</head>
+<body>
+<nav th:replace="base :: nav"></nav>
+<form action="#"
+      th:action="@{/process}"
+      th:object="${message}"
+      method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    Title :<input type="text" th:field="*{title}" />
+    <span th:if="${#fields.hasErrors('title')}"
+          th:errors="*{title}"></span><br/>
+
+    Content :<textarea rows="3" th:field="*{content}" />
+    <span th:if="${#fields.hasErrors('content')}"
+          th:errors="*{content}"></span><br/>
+
+   PostedDate :<input type="date" th:field="*{postedDate}" />
+    <span th:if="${#fields.hasErrors('postedDate')}"
+          th:errors="*{postedDate"}></span><br/>
+
+    PostedBy :<input type="text" th:field="*{postedBy}" />
+    <span th:if="${#fields.hasErrors('postedBy')}"
+          th:errors="*{postedBy"}></span><br/>
+    <br/>
+    <input type="submit" value="Submit" />
+
+</form>
+<span th:replace="base :: jslinks"></span>
+</body>
+</html>

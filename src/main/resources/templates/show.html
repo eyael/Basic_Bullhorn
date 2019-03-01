@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Message</title>
+    <th:block th:insert="base :: header"></th:block>
+</head>
+
+<body>
+<nav th:replace="base :: nav"></nav>
+<!--- sdjlfj sldjf -->
+
+<h1>Course Details</h1>
+<a href="/">Show All Messages</a><br/>
+
+Title:<span th:text="${message.title}"></span><br/>
+Content:<p th:text="${message.content}"></p><br/>
+PostedDate :<span th:text="${message.postedDate}"></span><br/>
+PostedBy :<span th:text="${message.postedBy}"></span><br/>
+<a th:href="@{/delete/{id}(id=${message.id})}">Delete this message</a>
+<span th:replace="base :: jslinks"></span>
+</body>
+</html>
