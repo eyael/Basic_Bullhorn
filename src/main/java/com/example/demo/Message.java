@@ -31,6 +31,15 @@ public class Message {
     @Size(min=10)
     private String postedBy;
 
+    private String headshot;
+
+    public String getHeadshot() {
+        return headshot;
+    }
+
+    public void setHeadshot(String headshot) {
+        this.headshot = headshot;
+    }
 
     public long getId() {
         return id;

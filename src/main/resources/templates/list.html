@@ -22,6 +22,9 @@
         <td th:text="${message.title}"></td>
         <td th:text="${message.postedDate}"></td>
         <td th:text="${message.postedBy}"></td>
+        <td th:if="${message.headshot} != null">
+            <img th:src="${message.headshot}" />
+        </td>
         <td>
             <a th:href="@{/update/{id}(id=${message.id})}">Update</a> -
             <a th:href="@{/detail/{id}(id=${message.id})}">Detail</a> -
