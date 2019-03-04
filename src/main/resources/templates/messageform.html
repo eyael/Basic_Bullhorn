@@ -8,31 +8,34 @@
 <body>
 <nav th:replace="base :: nav"></nav>
 <form action="#"
-      th:action="@{/process}"
-      th:object="${message}"
-      method="post" enctype="multipart/form-data">
-    <input type="hidden" th:field="*{id}" />
+      enctype="multipart/form-data"
+      method="post"
+      th:action="@{/process}" th:object="${message}">
+    <input th:field="*{id}" type="hidden"/>
 
+    <label>Title:</label><br>
+    <input th:field="*{title}" type="text"/>
+    <span th:errors="*{title}"
+          th:if="${#fields.hasErrors('title')}"></span><br/>
 
-    Title :<input type="text" th:field="*{title}" />
-    <span th:if="${#fields.hasErrors('title')}"
-          th:errors="*{title}"></span><br/>
+    <label>Content:</label><br>
+     :<textarea rows="3" th:field="*{content}"/>
+    <span th:errors="*{content}"
+          th:if="${#fields.hasErrors('content')}"></span><br/>
 
-    Content :<textarea rows="3" th:field="*{content}" />
-    <span th:if="${#fields.hasErrors('content')}"
-          th:errors="*{content}"></span><br/>
+    <label>PostDate:</label><br>
+   :<input th:field="*{postedDate}" type="date"/>
+    <span th:errors="*{postedDate}"
+          th:if="${#fields.hasErrors('postedDate')}"></span><br/>
 
-   PostedDate :<input type="date" th:field="*{postedDate}" />
-    <span th:if="${#fields.hasErrors('postedDate')}"
-          th:errors="*{postedDate}"></span><br/>
-
-    PostedBy :<input type="text" th:field="*{postedBy}" />
-    <span th:if="${#fields.hasErrors('postedBy')}"
-          th:errors="*{postedBy}"></span><br/>
+    <label>PostedBy:</label><br>
+    <input th:field="*{postedBy}" type="text"/>
+    <span th:errors="*{postedBy}"
+          th:if="${#fields.hasErrors('postedBy')}"></span><br/>
 
     <br/>
-    <input type="file" name="file" />
-    <input type="submit" value="Post" />
+    <input name="file" type="file"/>
+    <input type="submit" value="Post"/>
 
 </form>
 <span th:replace="base :: jslinks"></span>

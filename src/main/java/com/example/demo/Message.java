@@ -20,7 +20,7 @@ public class Message {
     private String title;
 
     @NotNull
-    @Size(min=15)
+    @Size(min=5)
     private String content;
 
     @NotNull
@@ -28,7 +28,7 @@ public class Message {
     private String postedDate;
 
     @NotNull
-    @Size(min=10)
+    @Size(min=3)
     private String postedBy;
 
     private String headshot;

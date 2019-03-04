@@ -31,11 +31,19 @@ public class HomeController {
         return "messageform";
     }
 
+
     @PostMapping("/process")
-    public String processForm(@ModelAttribute Message message, @RequestParam("file")MultipartFile file) {
+    public String processForm(@Valid
+                                  @ModelAttribute ("message") Message message,BindingResult result, @RequestParam("file")MultipartFile file ) {
+
         if (file.isEmpty()) {
             return "redirect:/add";
         }
+        if (result.hasErrors()){
+            return "messageform";
+        }
+        messageRepository.save(message);
+
         try {
             Map uploadResult = cloudc.upload(file.getBytes(),
                     ObjectUtils.asMap("resourcetype", "auto"));
@@ -48,15 +56,16 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @RequestMapping("/update/{id}")
+   @RequestMapping("/update/{id}")
     public String updateMessage(@PathVariable("id") long id, Model
             model) {
         model.addAttribute("message", messageRepository.findById(id).get());
         return "messageform";
     }
 
+
     @RequestMapping("/detail/{id}")
-    public String showMessage(@PathVariable("id") long id, Model model) {
+   public String showMessage(@PathVariable("id") long id, Model model) {
         model.addAttribute("message", messageRepository.findById(id).get());
         return "show";
     }
@@ -65,5 +74,5 @@ public class HomeController {
     public String delMessage(@PathVariable("id") long id) {
         messageRepository.deleteById(id);
         return "redirect:/";
-    }
+  }
 }
