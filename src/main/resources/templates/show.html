@@ -10,6 +10,8 @@
 <nav th:replace="base :: nav"></nav>
 <!--- sdjlfj sldjf -->
 
+<div class="container">
+    <div class="my-5"></div>
 <h1>Course Details</h1>
 <a href="/">Show All Messages</a><br/>
 
@@ -22,6 +24,7 @@ PostedDate :<span th:text="${message.postedDate}"></span><br/>
 PostedBy :<span th:text="${message.postedBy}"></span><br/>
 <div></div>
 <a th:href="@{/delete/{id}(id=${message.id})}">Delete this message</a>
+</div>
 <span th:replace="base :: jslinks"></span>
 </body>
 </html>
